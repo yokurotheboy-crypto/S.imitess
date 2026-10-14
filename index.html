@@ -1,0 +1,552 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b09">
+  <meta name="description" content="S.IMITESS — escolha a sua edição e descubra a próxima geração de software.">
+  <title>S.IMITESS — Official Website</title>
+
+  <style>
+    :root {
+      --bg: #080b09;
+      --panel: #101612;
+      --green: #b6ff6a;
+      --text: #f3f6f1;
+      --muted: #9ba79e;
+      --border: #27332a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 11, 9, .92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .logo span { color: var(--green); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .nav-links a:hover { color: var(--green); }
+
+    .language {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    .hero {
+      min-height: 560px;
+      display: grid;
+      place-content: center;
+      text-align: center;
+      padding: 90px 0;
+      background:
+        radial-gradient(ellipse at 50% 35%,
+        rgba(123, 255, 87, .11), transparent 55%);
+    }
+
+    .eyebrow {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: .75rem;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 9vw, 6.4rem);
+      line-height: 1.02;
+      letter-spacing: -4px;
+      margin: 22px 0;
+    }
+
+    h1 span { color: var(--green); }
+
+    .hero p {
+      max-width: 580px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 22px;
+      border: 1px solid var(--green);
+      border-radius: 9px;
+      background: var(--green);
+      color: #0a1008;
+      font-weight: 800;
+      transition: transform .2s, opacity .2s;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    section { padding: 75px 0; }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 38px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin: 8px 0;
+      letter-spacing: -1px;
+    }
+
+    .section-heading p, .muted { color: var(--muted); }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .plan {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: linear-gradient(145deg, #111812, #0b0f0c);
+    }
+
+    .plan.featured { border-color: var(--green); }
+
+    .plan h3 { font-size: 1.45rem; margin: 0; }
+
+    .price {
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin: 16px 0 0;
+    }
+
+    .price small {
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0;
+    }
+
+    .plan ul {
+      padding-left: 20px;
+      color: var(--muted);
+      min-height: 90px;
+    }
+
+    .plan li { margin: 8px 0; }
+
+    .plan .button { width: 100%; margin-top: 10px; }
+
+    .tag {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 800;
+      color: var(--green);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 4px 10px;
+      margin-bottom: 15px;
+    }
+
+    .editions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .edition {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      background: var(--panel);
+    }
+
+    .edition h3 { margin-top: 0; }
+
+    .edition p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .platforms {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .platform {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      color: var(--muted);
+      background: var(--panel);
+    }
+
+    .status {
+      color: var(--green);
+      font-size: .82rem;
+    }
+
+    .faq {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    details {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 0;
+    }
+
+    summary { cursor: pointer; font-weight: 700; }
+
+    details p { color: var(--muted); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 700px) {
+      .nav-links { gap: 12px; font-size: .8rem; }
+      .plans, .editions { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -2px; }
+      .hero { min-height: 480px; }
+    }
+
+    @media (max-width: 430px) {
+      .nav-links a:not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Navegação principal">
+        <a class="logo" href="#inicio">S.<span>IMITESS</span></a>
+
+        <div class="nav-links">
+          <a href="#edicoes" data-i18n="navEditions">Edições</a>
+          <a href="#instalar" data-i18n="navInstall">Instalar</a>
+          <button class="language" id="languageBtn" type="button">
+            EN
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="eyebrow">S.IMITESS / OFFICIAL</div>
+        <h1 data-i18n="welcome">Bem-vindo ao<br><span>S.IMITESS</span></h1>
+        <p data-i18n="intro">
+          Uma nova experiência de software. Escolha a sua edição
+          e prepare-se para começar.
+        </p>
+        <a class="button" href="#edicoes" data-i18n="choose">
+          Escolher edição →
+        </a>
+      </div>
+    </section>
+
+    <section id="edicoes">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-i18n="plansEyebrow">PLANOS</div>
+          <h2 data-i18n="chooseTitle">Qual é a sua opção?</h2>
+          <p data-i18n="chooseSubtitle">
+            Comece gratuitamente ou escolha o pacote completo.
+          </p>
+        </div>
+
+        <div class="plans">
+          <article class="plan">
+            <span class="tag">FREE</span>
+            <h3>S.IMITESS Lite</h3>
+            <div class="price">0 $ <small data-i18n="forever">/ para sempre</small></div>
+            <ul>
+              <li data-i18n="lite1">Acesso à edição Lite</li>
+              <li data-i18n="lite2">Sem custo de compra</li>
+              <li data-i18n="lite3">Instalador disponível quando lançado</li>
+            </ul>
+            <a class="button secondary" href="#instalar" data-i18n="getLite">
+              Obter Lite
+            </a>
+          </article>
+
+          <article class="plan featured">
+            <span class="tag" data-i18n="bestValue">PACOTE COMPLETO</span>
+            <h3>S.IMITESS Padrão + Ultra</h3>
+            <div class="price">15 $ <small data-i18n="once">/ pagamento único</small></div>
+            <ul>
+              <li data-i18n="standardIncluded">Edição Padrão incluída</li>
+              <li data-i18n="ultraIncluded">Edição Ultra incluída</li>
+              <li data-i18n="noSubscription">Sem mensalidades</li>
+            </ul>
+            <button class="button" type="button" id="buyBtn"
+              data-i18n="buy" disabled>
+              Compra disponível em breve
+            </button>
+          </article>
+        </div>
+        <p class="muted" style="text-align:center;font-size:.85rem;margin-top:18px"
+           data-i18n="paymentNote">
+          O pagamento e o acesso serão ativados quando estiverem configurados.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">EDITIONS</div>
+          <h2 data-i18n="threeEditions">Três edições. A sua escolha.</h2>
+        </div>
+
+        <div class="editions">
+          <article class="edition">
+            <h3>01 / Lite</h3>
+            <p data-i18n="liteDescription">
+              A edição gratuita para começar.
+            </p>
+            <span class="status" data-i18n="comingSoon">● Em preparação</span>
+          </article>
+          <article class="edition">
+            <h3>02 / Padrão</h3>
+            <p data-i18n="standardDescription">
+              A edição padrão do S.IMITESS.
+            </p>
+            <span class="status" data-i18n="comingSoon">● Em preparação</span>
+          </article>
+          <article class="edition">
+            <h3>03 / Ultra</h3>
+            <p data-i18n="ultraDescription">
+              A edição avançada do S.IMITESS.
+            </p>
+            <span class="status" data-i18n="comingSoon">● Em preparação</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="instalar">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow" data-i18n="downloadEyebrow">DOWNLOADS</div>
+          <h2 data-i18n="installTitle">Instalar S.IMITESS</h2>
+          <p data-i18n="installDescription">
+            Os instaladores serão publicados aqui quando estiverem prontos.
+          </p>
+          <span class="status" data-i18n="installStatus">
+            ● Os downloads ainda não estão disponíveis
+          </span>
+        </div>
+
+        <div class="platforms">
+          <div class="platform">Windows — <span data-i18n="soon">Em breve</span></div>
+          <div class="platform">Debian — <span data-i18n="soon">Em breve</span></div>
+          <div class="platform">Arch Linux — <span data-i18n="soon">Em breve</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">FAQ</div>
+          <h2 data-i18n="faqTitle">Perguntas frequentes</h2>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary data-i18n="faq1q">O Lite é grátis?</summary>
+            <p data-i18n="faq1a">
+              Sim. A edição Lite está planeada para ser gratuita.
+            </p>
+          </details>
+          <details>
+            <summary data-i18n="faq2q">Os 15 $ são uma subscrição?</summary>
+            <p data-i18n="faq2a">
+              Não. É um pagamento único pelo pacote Padrão + Ultra.
+            </p>
+          </details>
+          <details>
+            <summary data-i18n="faq3q">Quando posso descarregar o software?</summary>
+            <p data-i18n="faq3a">
+              Os downloads serão ativados quando os instaladores forem publicados.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> S.IMITESS</span>
+      <span data-i18n="footerText">Site oficial · Em desenvolvimento</span>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      pt: {
+        navEditions: "Edições", navInstall: "Instalar",
+        welcome: 'Bem-vindo ao<br><span>S.IMITESS</span>',
+        intro: "Uma nova experiência de software. Escolha a sua edição e prepare-se para começar.",
+        choose: "Escolher edição →", plansEyebrow: "PLANOS",
+        chooseTitle: "Qual é a sua opção?",
+        chooseSubtitle: "Comece gratuitamente ou escolha o pacote completo.",
+        forever: "/ para sempre", lite1: "Acesso à edição Lite",
+        lite2: "Sem custo de compra",
+        lite3: "Instalador disponível quando lançado",
+        getLite: "Obter Lite", bestValue: "PACOTE COMPLETO",
+        once: "/ pagamento único", standardIncluded: "Edição Padrão incluída",
+        ultraIncluded: "Edição Ultra incluída", noSubscription: "Sem mensalidades",
+        buy: "Compra disponível em breve",
+        paymentNote: "O pagamento e o acesso serão ativados quando estiverem configurados.",
+        threeEditions: "Três edições. A sua escolha.",
+        liteDescription: "A edição gratuita para começar.",
+        standardDescription: "A edição padrão do S.IMITESS.",
+        ultraDescription: "A edição avançada do S.IMITESS.",
+        comingSoon: "● Em preparação", downloadEyebrow: "DOWNLOADS",
+        installTitle: "Instalar S.IMITESS",
+        installDescription: "Os instaladores serão publicados aqui quando estiverem prontos.",
+        installStatus: "● Os downloads ainda não estão disponíveis",
+        soon: "Em breve", faqTitle: "Perguntas frequentes",
+        faq1q: "O Lite é grátis?",
+        faq1a: "Sim. A edição Lite está planeada para ser gratuita.",
+        faq2q: "Os 15 $ são uma subscrição?",
+        faq2a: "Não. É um pagamento único pelo pacote Padrão + Ultra.",
+        faq3q: "Quando posso descarregar o software?",
+        faq3a: "Os downloads serão ativados quando os instaladores forem publicados.",
+        footerText: "Site oficial · Em desenvolvimento"
+      },
+      en: {
+        navEditions: "Editions", navInstall: "Install",
+        welcome: 'Welcome to<br><span>S.IMITESS</span>',
+        intro: "A new software experience. Choose your edition and get ready to begin.",
+        choose: "Choose your edition →", plansEyebrow: "PLANS",
+        chooseTitle: "Choose your option",
+        chooseSubtitle: "Start for free or choose the complete bundle.",
+        forever: "/ forever", lite1: "Access to the Lite edition",
+        lite2: "No purchase cost",
+        lite3: "Installer available when released",
+        getLite: "Get Lite", bestValue: "COMPLETE BUNDLE",
+        once: "/ one-time payment", standardIncluded: "Standard edition included",
+        ultraIncluded: "Ultra edition included", noSubscription: "No recurring fees",
+        buy: "Purchases coming soon",
+        paymentNote: "Payments and access will be enabled once configured.",
+        threeEditions: "Three editions. Your choice.",
+        liteDescription: "The free edition to get started.",
+        standardDescription: "The standard S.IMITESS edition.",
+        ultraDescription: "The advanced S.IMITESS edition.",
+        comingSoon: "● In preparation", downloadEyebrow: "DOWNLOADS",
+        installTitle: "Install S.IMITESS",
+        installDescription: "Installers will be published here when ready.",
+        installStatus: "● Downloads are not available yet",
+        soon: "Coming soon", faqTitle: "Frequently asked questions",
+        faq1q: "Is Lite free?",
+        faq1a: "Yes. The Lite edition is planned to be free.",
+        faq2q: "Is the $15 a subscription?",
+        faq2a: "No. It is a one-time payment for the Standard + Ultra bundle.",
+        faq3q: "When can I download the software?",
+        faq3a: "Downloads will be enabled when installers are published.",
+        footerText: "Official website · In development"
+      }
+    };
+
+    let language = "pt";
+    const languageBtn = document.getElementById("languageBtn");
+
+    languageBtn.addEventListener("click", () => {
+      language = language === "pt" ? "en" : "pt";
+      document.documentElement.lang = language;
+      languageBtn.textContent = language === "pt" ? "EN" : "PT";
+
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const key = element.dataset.i18n;
+        if (translations[language][key]) {
+          element.innerHTML = translations[language][key];
+        }
+      });
+    });
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
